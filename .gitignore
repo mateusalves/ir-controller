@@ -50,5 +50,5 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
-ir-controller/src/.astylerc
-ir-controller/bin
+/bin
+src/.astylerc
