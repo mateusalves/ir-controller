@@ -1,7 +1,6 @@
 #makefile
 C_COMPILER=gcc
 
-# TARGET_EXTENSION=.so
 
 BINDIR=bin/
 EXTDIR=ext/
@@ -9,6 +8,13 @@ SRCDIR=src/
 
 FLAGS = -Wall
 FLAGS += -I$(EXTDIR)
+
+SO=true
+ifdef SO
+TARGET_EXTENSION=.so
+FLAGS += -fPIC
+FLAGS += -shared
+endif
 
 LIBS = -lpigpio
 LIBS += -lm #liking to libmath
