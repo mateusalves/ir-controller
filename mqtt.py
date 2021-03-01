@@ -47,7 +47,7 @@ myAWSIoTMQTTClient.connect()
 def subscribe():
     myAWSIoTMQTTClient.subscribe(topic, 1, customCallback)
 
-def publish(self, messageToPublish):
+def publish(messageToPublish):
     print(topic)
     print(messageToPublish)
     return myAWSIoTMQTTClient.publish(topic, messageToPublish, 1)

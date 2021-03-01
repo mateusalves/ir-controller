@@ -37,7 +37,6 @@ while True:
             startTime = now
 
             command.append((previousVal, pulseLength.microseconds))
-            print command
 
         if value:
             numOnes = numOnes + 1
