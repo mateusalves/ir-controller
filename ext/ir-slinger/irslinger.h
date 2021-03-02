@@ -53,7 +53,7 @@ static inline void gap(uint32_t outPin, double duration, gpioPulse_t *irSignal, 
 }
 
 // Transmit generated wave
-static inline int transmitWave(uint32_t outPin, gpioPulse_t *irSignal, unsigned int *pulseCount)
+static inline int transmitWave(uint32_t outPin, gpioPulse_t *irSignal, int *pulseCount)
 {
 	// Init pigpio
 	if (gpioInitialise() < 0)
