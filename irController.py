@@ -66,12 +66,11 @@ if __name__ == '__main__':
     print(os.getenv("SUDO_USER"))
     # mapingController()
     
-   # with open('mappedButtons.json', 'r') as r:
-    #    controllerMap = json.loads(r.read())
-     #   r.close()
-    #print('power', controllerMap['power'])
-    #ir_transmitter(controllerMap['power'])
-    #ir_transmitter(controllerMap['netflix'])
+    with open('mappedButtons.json', 'r') as r:
+       controllerMap = json.loads(r.read())
+       r.close()
+    print('power', controllerMap['power'])
+    ir_transmitter(controllerMap['power'])
+    # ir_transmitter(controllerMap['netflix'])
     # command = ir_receiver()
-    command = "00100000110111110001000011101111"
-    ir_transmitter(command)
+    # ir_transmitter(command)
