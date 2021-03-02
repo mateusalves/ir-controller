@@ -33,21 +33,18 @@ def ir_receiver():
 def mapingController():
     userInput = ''
 
-    if (os.path.exists('mappedButtons.json')):
+    try:
         with open('mappedButtons.json', 'r') as r:
             mappedButtonsJson = json.loads(r.read())
             r.close()
-    else:
+    except:
         mappedButtonsJson = json.loads("{}")
 
     while (userInput.lower() != 'done'):
 
-        userInput = input("\nEnter the button name or type 'done' to exit and save: ")
+        userInput = input("\nEnter the button name or type 'done' to exit: ")
         
         if userInput.lower() == 'done':
-            with open('mappedButtons.json', 'w') as f:
-                f.write(json.dumps(mappedButtonsJson, indent=4))
-                f.close()
             break
         
         print("\nNow, point the controller to the receiver and press the button: ")
@@ -57,20 +54,25 @@ def mapingController():
 
         os.system('clear')
 
+        with open('mappedButtons.json', 'w') as f:
+            f.write(json.dumps(mappedButtonsJson, indent=4))
+            f.close()
+        
         print(json.dumps(mappedButtonsJson, indent=4))
         print(f'{userInput} - successfully stored')
+        
 
 
 if __name__ == '__main__':
-    print(os.getenv("USER"))
-    print(os.getenv("SUDO_USER"))
-    # mapingController()
+    # print(os.getenv("USER"))
+    # print(os.getenv("SUDO_USER"))
+    mapingController()
     
-    with open('mappedButtons.json', 'r') as r:
-       controllerMap = json.loads(r.read())
-       r.close()
-    print('power', controllerMap['power'])
-    ir_transmitter(controllerMap['power'])
+    # with open('mappedButtons.json', 'r') as r:
+    #    controllerMap = json.loads(r.read())
+    #    r.close()
+    # print('power', controllerMap['power'])
+    # ir_transmitter(controllerMap['power'])
     # ir_transmitter(controllerMap['netflix'])
     # command = ir_receiver()
     # ir_transmitter(command)
